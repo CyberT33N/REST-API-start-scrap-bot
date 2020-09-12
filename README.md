@@ -1,5 +1,5 @@
 # REST API Example (Scrap Bot)
-This a sample REST API for sending a JSON with POST request, start the scrap bot, scrap data and then send the result back.
+This a sample REST API for sending search values (JSON) via POST request, start the scrap bot, scrap data and then send the results back.
 
 <br />
 <br />
