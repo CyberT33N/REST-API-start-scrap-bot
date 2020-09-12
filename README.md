@@ -1,7 +1,7 @@
 # REST API Example (Scrap Bot)
 This a sample REST API for sending a JSON with POST request, start the scrap bot, scrap data and then send the result back.
 
-br />
+<br />
 <br />
 Database: **MongoDB**
 Framework: **Express.js**
