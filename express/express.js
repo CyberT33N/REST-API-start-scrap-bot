@@ -775,7 +775,7 @@ log( 'We recieved incoming POST request..' );
 
 
 
-      })().catch((e) => {  log('ASYNC - Error at route: ' + JSON.stringify( e, null, 4) )  });
+      })().catch((e) => {  log('ASYNC - Error at route: ' + e )  });
  }); // mem.info().then(info => {
 
 
