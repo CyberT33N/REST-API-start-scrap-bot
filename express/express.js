@@ -652,9 +652,9 @@ log( 'We recieved incoming POST request..' );
 
 
                if( Number(info.freeMemPercentage) <= 5 ){
-                        let log = 'We reached the max RAM limits.. We will stop the request.. Currently free RAM: ' + Number(info.freeMemPercentage);
-                        log( log );
-                        res.send(log);
+                        let e = 'We reached the max RAM limits.. We will stop the request.. Currently free RAM: ' + Number(info.freeMemPercentage);
+                        log( e );
+                        res.send(e);
                         return;
              } //       if( Number(info.freeMemPercentage) < 5 ){
 
@@ -666,9 +666,9 @@ log( 'We recieved incoming POST request..' );
                 // check if token is valid
                let success = await authCheck(client, req.headers['authorization']);
                if( !success ){
-                   let log = 'Error while try to verify auth token..Maybe wrong token?';
-                   log( log );
-                   res.send( log );
+                   let e = 'Error while try to verify auth token..Maybe wrong token?';
+                   log( e );
+                   res.send( e );
                    return;
                } //   if( !success ){
                log( 'Auth token was verified successfully..' );
@@ -684,9 +684,9 @@ log( 'We recieved incoming POST request..' );
               // import json to import collection
               success = await importDB(client, req.body, res);
               if( !success ){
-                  let log = 'Error while try to import json to database..';
-                  log( log );
-                  res.send( log );
+                  let e = 'Error while try to import json to database..';
+                  log( e );
+                  res.send( e );
                   return;
               } //   if( !success ){
               log( 'We will start now the bot..' );
@@ -742,9 +742,9 @@ log( 'We recieved incoming POST request..' );
 
                                                                 success = await getExport(client, searchURL);
                                                                 if( !success ){
-                                                                    let log = 'Error while try to get the result from the automation..';
-                                                                    log( log );
-                                                                    res.send( log );
+                                                                    let e = 'Error while try to get the result from the automation..';
+                                                                    log( e );
+                                                                    res.send( e );
                                                                     return;
                                                                 } //   if( !success ){
                                                                 log( chalk.green.bold('✔ SUCCESS') + ' Script is finished.. We will send now this JSON back to the user:\n' + chalk.white.bold( success ) );
