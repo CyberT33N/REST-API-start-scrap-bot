@@ -16,4 +16,4 @@ Database: **MongoDB**
 - LIMIT requests
 - Auth via Token
 - Check if data already exist in database to avoid duplicates
-- Return scrapped data JSON back to POST request as result
+- Return scrapped data JSON back as response
