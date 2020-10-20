@@ -189,7 +189,7 @@ log( 'We recieved incoming POST request..' );
   if (!req.is('application/json')) {
         let e = 'As it seems the POST request doesnt contains a valid JSON.. We cancel the request now..';
         log(e);
-        res.send(e);
+         res.status(400).json( { message: e } );
         return;
     }
     log( 'POST request JSON: '  + JSON.stringify(req.body, null, 4)  );
@@ -203,7 +203,7 @@ log( 'We recieved incoming POST request..' );
     if( !await controller.checkRAM() ){
         let e = 'We reached the max RAM limits.. We will stop the request..';
         log(e);
-        res.send(e);
+        res.status(400).json( { message: e } );
         return;
     }
 
@@ -217,7 +217,7 @@ log( 'We recieved incoming POST request..' );
   if( !await controllermongodb.auth(req.headers['authorization']) ){
       let e = 'Error while try to verify auth token..Maybe wrong token?';
       log(e);
-      res.send(e);
+      res.status(401).json( { message: e } );
       return;
   }
   log( 'Auth token was verified successfully..' );
@@ -237,7 +237,7 @@ log( 'We recieved incoming POST request..' );
             if( !importResult ) var e = 'Error while try to import json to database..';
             if( importResult == 'duplicated' ) var e = 'Item was already found in database.. Please choose another item..';
             log(e);
-            res.send(e);
+            res.status(400).json( { message: e } );
             return;
          }
 
@@ -264,7 +264,7 @@ log( 'We recieved incoming POST request..' );
       if( botResult !== true ){
           var e = 'Something went wrong with the scrap bot.. Error: ' + botResult;
           log(e);
-          res.send(e);
+          res.status(400).json( { message: e } );
           return;
        }
        log( 'Bot finished..' );
@@ -279,7 +279,7 @@ log( 'We recieved incoming POST request..' );
       if( !exportResult ){
           let e = 'Error while try to get the result from the scrap process.. This error is not normal.. Something went wrong within the Bot script itself..';
           log(e);
-          res.send(e);
+          res.status(400).json( { message: e } );
           return;
       }
 
